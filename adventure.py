@@ -25,7 +25,7 @@ class Adventure():
             print("You're not carrying anything.")
             return
         print("Inventory:")
-        for item in self.bag:
+        for item in sorted(self.bag):
             print("  ", item)
 
     def get(self, item_name):
@@ -40,28 +40,29 @@ class Adventure():
             print("There's no", item_name, "anywhere.")
 
     def go(self, direction):
-        if direction in self.map[self.curr]["exits"]:
-            next = self.map[self.curr]["exits"][direction]
-            if 'locked' in self.map[next]:
-                open = (self.map[next]["locked"] == 0)
-                if (self.map[next]["locked"] == 1):
-                    for item in self.bag:
-                        if item == self.map[next]["key"]:
-                            print(
-                                "Found the key in the bag!, unlocking your door now!")
-                            open = True
-                if not open:
-                    print("Door is locked! You will be stay in the same room.")
-                    return
-
-            self.curr = next
-            print("You go", direction + '.\n')
-            return True
-        else:
+        if direction not in self.map[self.curr]["exits"]:
             print("There's no way to go " + direction + '.')
             return False
+        next = self.map[self.curr]["exits"][direction]
+        if 'locked' in self.map[next]:
+            open = (self.map[next]["locked"] == 0)
+            if (self.map[next]["locked"] == 1):
+                for item in self.bag:
+                    if item == self.map[next]["key"]:
+                        print(
+                            "Found the key in the bag! Unlocking your room now!")
+                        open = True
+            if not open:
+                print("Room is locked! You will be stay in the same room.")
+                return False
+
+        self.curr = next
+        print("You go", direction + '.\n')
+        return True
+
 
 # extension
+
     def help(self):
         # Get all the functions other than init
         funcs = [f for f in dir(Adventure) if not f.startswith("__")]
