@@ -18,20 +18,19 @@ class Adventure():
         print(self.map[self.curr]["desc"] + '\n')
 
         if "items" in self.map[self.curr] and len(self.map[self.curr]["items"]) != 0:
-            print("Items:", ', '.join(self.map[self.curr]["items"]), '\n')
+            print("Items: " + ', '.join(self.map[self.curr]["items"]) + '\n')
 
         # assume all rooms have exits
         print("Exits: " +
-              ' '.join(list(self.map[self.curr]["exits"].keys())), '\n')
+              ' '.join(list(self.map[self.curr]["exits"].keys())) + '\n')
 
     def inventory(self):
         if not self.bag:
             print("You're not carrying anything.")
             return
         print("Inventory: ")
-        if self.bag:
-            for item in self.bag:
-                print("  ", item)
+        for item in self.bag:
+            print("  ", item)
 
     def get(self, item_name):
         if 'items' in self.map[self.curr] and item_name in self.map[self.curr]['items']:
@@ -60,10 +59,13 @@ class Adventure():
 
             self.curr = next
             print("You go", direction + '.\n')
+            return True
         else:
             print("There's no way to go " + direction + '.')
+            return False
 
-    def help(sellf):
+# extension
+    def help(self):
         # Get all the functions other than init
         funcs = [f for f in dir(Adventure) if not f.startswith("__")]
         print("You can run the following command:")
@@ -76,6 +78,7 @@ class Adventure():
             else:
                 print(' ', f)
 
+# extension
     def drop(self, item):
         if item not in self.bag:
             print("You do not have the ", item, "in your inventory.")
@@ -111,8 +114,8 @@ def main():
             if len(command) < 2:
                 print("Sorry, you need to 'go' somewhere.")
                 continue
-            game.go(' '.join(command[1:]))
-            game.look()
+            if game.go(' '.join(command[1:])):
+                game.look()
             continue
         elif verb == 'look':
             game.look()
