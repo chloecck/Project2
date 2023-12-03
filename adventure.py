@@ -25,8 +25,8 @@ class Adventure():
             print("You're not carrying anything.")
             return
         print("Inventory:")
-        for item in self.bag:
-            print("  ", item)
+        for item in sorted(self.bag):
+            print("  " + item)
 
     def get(self, item_name):
         if 'items' in self.map[self.curr] and item_name in self.map[self.curr]['items']:
@@ -96,19 +96,19 @@ def main():
     try:
         with open(map_file, 'r') as file:
             map = json.load(file)
-            # Validate map.
-            if not isinstance(map, list):
-                raise TypeError("Map validation failed.")
-            for room in map:
-                if "name" not in room or not isinstance(room["name"], str):
-                    raise KeyError("Map validation failed.")
-                if "desc" not in room or not isinstance(room["desc"], str):
-                    raise KeyError("Map validation failed.")
-                if "exits" not in room or not isinstance(room["exits"], dict):
-                    raise KeyError("Map validation failed.")
-                for id in room["exits"].values():
-                    if not 0 <= id < len(map):
-                        raise IndexError("Map validation failed.")
+        # Validate map.
+        if not isinstance(map, list):
+            raise TypeError("Map validation failed.")
+        for room in map:
+            if "name" not in room or not isinstance(room["name"], str):
+                raise KeyError("Map validation failed.")
+            if "desc" not in room or not isinstance(room["desc"], str):
+                raise KeyError("Map validation failed.")
+            if "exits" not in room or not isinstance(room["exits"], dict):
+                raise KeyError("Map validation failed.")
+            for id in room["exits"].values():
+                if not 0 <= id < len(map):
+                    raise IndexError("Map validation failed.")
     except Exception as e:
         print(e)
         sys.exit(1)
