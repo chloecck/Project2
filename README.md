@@ -15,10 +15,17 @@ Github URL: https://github.com/chloecck/Project2
 - an example of a difficult issue or bug and how you resolved
     I had a problem understanding the game initially, so I googled some game of adventure example, and quickly understood the concept especially through the demo of wiki.
 
-extensions
+
+
+
+
+
+
+Extensions: python3 adventure.py loop.map
+
     1. help function
 python3 adventure.py loop.map
-"""> A white room
+> A white room
 
 You are in a simple room with white walls.
 
@@ -36,7 +43,7 @@ You can run the following command:
   inventory
   load_map ...
   look
-"""
+
 
 What would you like to do? 
 
