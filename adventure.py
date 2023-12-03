@@ -105,7 +105,7 @@ def main():
     while True:
         try:
             command = input(
-                "What would you like to do? ").strip().lower().split()
+                "What would you like to do? ").strip().split()
         except EOFError:
             print("\nUse 'quit' to exit.")
             continue
@@ -115,7 +115,7 @@ def main():
         if not command:
             # print("Please enter a command.")
             continue
-        verb = command[0]
+        verb = command[0].lower()
         if verb == 'go':
             if len(command) < 2:
                 print("Sorry, you need to 'go' somewhere.")
