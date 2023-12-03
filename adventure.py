@@ -14,9 +14,8 @@ class Adventure():
             return json.load(file)
 
     def look(self):
-        print(">", self.map[self.curr]["name"])
-        print()
-        print(self.map[self.curr]["desc"], '\n')
+        print("> " + self.map[self.curr]["name"] + "\n")
+        print(self.map[self.curr]["desc"] + '\n')
 
         if "items" in self.map[self.curr] and len(self.map[self.curr]["items"]) != 0:
             print("Items:", ', '.join(self.map[self.curr]["items"]), '\n')
@@ -29,7 +28,7 @@ class Adventure():
         if not self.bag:
             print("You're not carrying anything.")
             return
-        print("Inventory:")
+        print("Inventory: ")
         if self.bag:
             for item in self.bag:
                 print("  ", item)
@@ -47,7 +46,6 @@ class Adventure():
     def go(self, direction):
         if direction in self.map[self.curr]["exits"]:
             next = self.map[self.curr]["exits"][direction]
-
             if 'locked' in self.map[next]:
                 open = (self.map[next]["locked"] == 0)
                 if (self.map[next]["locked"] == 1):
@@ -61,10 +59,9 @@ class Adventure():
                     return
 
             self.curr = next
-            print("You go", direction + '.')
-            print()
+            print("You go", direction + '.\n')
         else:
-            print("There's no way to go", direction + '.')
+            print("There's no way to go " + direction + '.')
 
     def help(sellf):
         # Get all the functions other than init
@@ -96,8 +93,16 @@ def main():
     game = Adventure(map_file)
     game.look()
     while True:
-        command = input(
-            "What would you like to do? ").strip().lower().split()
+        try:
+            command = input(
+                "What would you like to do? ").strip().lower().split()
+        except EOFError:
+            print("\nUse 'quit' to exit.")
+            continue
+        except KeyboardInterrupt:
+            print("  ...\nKeyboardInterrupt")
+    # Additional cleanup or exit logic can be added here
+        # Continue with the game logic
         if not command:
             print("Please enter a command.")
             continue
