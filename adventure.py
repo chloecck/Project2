@@ -60,7 +60,7 @@ class Adventure():
         return True
 
     def quit(self):
-        pass
+        print("Goodbye!")
 
 # extension
 
@@ -146,7 +146,7 @@ def main():
         elif verb == 'inventory':
             game.inventory()
         elif verb == 'quit':
-            print("Goodbye!")
+            game.quit()
             sys.exit(0)
         elif verb == 'help':
             game.help()
