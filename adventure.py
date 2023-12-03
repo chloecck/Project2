@@ -92,8 +92,6 @@ def main():
         sys.exit(1)
 
     map_file = sys.argv[1]
-    print("The map is not valid.")
-    sys.exit(1)
 
     try:
         with open(map_file, 'r') as file:
