@@ -31,7 +31,6 @@ class Adventure():
     def get(self, item_name):
         if 'items' in self.map[self.curr] and item_name in self.map[self.curr]['items']:
             self.bag.add(item_name)
-            self.bag = set(sorted(self.bag))
             self.map[self.curr]['items'].remove(item_name)
             print("You pick up the " + item_name + '.')
             if "rose" in self.bag and 'locked' in self.map[self.curr]:
@@ -108,11 +107,11 @@ def main():
         except EOFError:
             print("\nUse 'quit' to exit.")
             continue
-        except KeyboardInterrupt:
-            print("Traceback (most recent call last):\n  ...\nKeyboardInterrupt")
-            sys.exit(0)
+        # except KeyboardInterrupt:
+        #     print("Traceback (most recent call last):\n  ...\nKeyboardInterrupt")
+        #     sys.exit(0)
         if not command:
-            print("Please enter a command.")
+            # print("Please enter a command.")
             continue
         verb = command[0]
         if verb == 'go':
