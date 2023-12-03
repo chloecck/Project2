@@ -8,19 +8,17 @@ Github URL: https://github.com/chloecck/Project2
 
 
 - a description of how you tested your code
-    Run "python3 adventure.py map.json"
+    Run "python3 adventure.py test.map"
 
 - any bugs or issues you could not resolve
     None that I'm awared of.
 - an example of a difficult issue or bug and how you resolved
     I had a problem understanding the game initially, so I googled some game of adventure example, and quickly understood the concept especially through the demo of wiki.
 
-- a list of the extensions you’ve chosen to implement, with appropriate detail on them for the CAs to evaluate them (i.e., what are the new verbs/features, how do you exercise them, where are they in the map)
-    I choose to implement
-
-    1. help function.
-(base) ➜  Project2 python3 adventure.py map.json
-> A white room
+extensions
+    1. help function
+python3 adventure.py loop.map
+"""> A white room
 
 You are in a simple room with white walls.
 
@@ -38,6 +36,7 @@ You can run the following command:
   inventory
   load_map ...
   look
+"""
 
 What would you like to do? 
 
