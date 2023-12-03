@@ -22,9 +22,13 @@ class Adventure():
             print("Items:", ', '.join(self.map[self.curr]["items"]), '\n')
 
         # assume all rooms have exits
-        print("Exits: " + ' '.join(list(self.map[self.curr]["exits"].keys())))
+        print("Exits: " +
+              ' '.join(list(self.map[self.curr]["exits"].keys())), '\n')
 
     def inventory(self):
+        if not self.bag:
+            print("You're not carrying anything.")
+            return
         print("Inventory:")
         if self.bag:
             for item in self.bag:
@@ -35,10 +39,10 @@ class Adventure():
             self.bag.add(item_name)
             self.map[self.curr]['items'].remove(item_name)
             print("You pick up the " + item_name + '.')
-            if "rose" in self.bag:
+            if "rose" in self.bag and 'locked' in self.map[self.curr]:
                 print("Yes finally, you reach the goal by getting the rose!")
         else:
-            print("There is no", item_name, "anywhere.")
+            print("There's no", item_name, "anywhere.")
 
     def go(self, direction):
         if direction in self.map[self.curr]["exits"]:
@@ -93,7 +97,7 @@ def main():
     game.look()
     while True:
         command = input(
-            "\nWhat would you like to do? ").strip().lower().split()
+            "What would you like to do? ").strip().lower().split()
         if not command:
             print("Please enter a command.")
             continue
