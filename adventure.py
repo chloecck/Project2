@@ -141,7 +141,7 @@ def main():
             if len(command) < 2:
                 print("Sorry, you need to 'drop' something.")
                 continue
-            game.drop(command[1:])
+            game.drop(command[1])
         else:
             print("Use 'quit' to exit.")
 
