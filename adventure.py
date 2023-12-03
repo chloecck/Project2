@@ -95,8 +95,9 @@ def main():
         with open(map_file, 'r') as file:
             map = json.load(file)
     except ValueError as e:
-        print("Invalid file!")
-    return
+        print(e)
+        sys.exit(1)
+
     game = Adventure(map)
     game.look()
     while True:
