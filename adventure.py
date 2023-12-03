@@ -35,6 +35,7 @@ class Adventure():
     def get(self, item_name):
         if 'items' in self.map[self.curr] and item_name in self.map[self.curr]['items']:
             self.bag.add(item_name)
+            self.bag = set(sorted(self.bag))
             self.map[self.curr]['items'].remove(item_name)
             print("You pick up the " + item_name + '.')
             if "rose" in self.bag and 'locked' in self.map[self.curr]:
