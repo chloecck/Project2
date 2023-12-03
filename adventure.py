@@ -17,16 +17,15 @@ class Adventure():
             print("Items: " + ', '.join(self.map[self.curr]["items"]) + '\n')
 
         # assume all rooms have exits
-        if len(self.map[self.curr]["exits"]) != 0:
-            print("Exits: " +
-                  ' '.join(list(self.map[self.curr]["exits"].keys())) + '\n')
+        print("Exits: " +
+              ' '.join(list(self.map[self.curr]["exits"].keys())) + '\n')
 
     def inventory(self):
         if not self.bag:
             print("You're not carrying anything.")
             return
         print("Inventory:")
-        for item in sorted(self.bag):
+        for item in self.bag:
             print("  ", item)
 
     def get(self, item_name):
