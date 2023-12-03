@@ -105,7 +105,7 @@ def main():
     while True:
         try:
             command = input(
-                "What would you like to do? ").strip().split()
+                "What would you like to do? ").strip().split(maxsplit=1)
         except EOFError:
             print("\nUse 'quit' to exit.")
             continue
@@ -120,7 +120,7 @@ def main():
             if len(command) < 2:
                 print("Sorry, you need to 'go' somewhere.")
                 continue
-            if game.go(' '.join(command[1:])):
+            if game.go(command[1]):
                 game.look()
             continue
         elif verb == 'look':
@@ -129,7 +129,7 @@ def main():
             if len(command) < 2:
                 print("Sorry, you need to 'get' something.")
                 continue
-            game.get(' '.join(command[1:]))
+            game.get(command[1])
         elif verb == 'inventory':
             game.inventory()
         elif verb == 'quit':
@@ -141,7 +141,7 @@ def main():
             if len(command) < 2:
                 print("Sorry, you need to 'drop' something.")
                 continue
-            game.drop(' '.join(command[1:]))
+            game.drop(command[1:])
         else:
             print("Use 'quit' to exit.")
 
