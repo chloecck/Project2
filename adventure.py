@@ -16,14 +16,13 @@ class Adventure():
     def look(self):
         print(">", self.map[self.curr]["name"])
         print()
-        print(self.map[self.curr]["desc"])
-        print()
+        print(self.map[self.curr]["desc"], '\n')
+
         if "items" in self.map[self.curr] and len(self.map[self.curr]["items"]) != 0:
-            print("Items:", ', '.join(self.map[self.curr]["items"]), '.')
-        print()
+            print("Items:", ', '.join(self.map[self.curr]["items"]), '\n')
+
         # assume all rooms have exits
-        print("Exits: ", ' '.join(list(self.map[self.curr]["exits"].keys())))
-        print()
+        print("Exits: " + ' '.join(list(self.map[self.curr]["exits"].keys())))
 
     def inventory(self):
         print("Inventory:")
@@ -35,7 +34,7 @@ class Adventure():
         if 'items' in self.map[self.curr] and item_name in self.map[self.curr]['items']:
             self.bag.add(item_name)
             self.map[self.curr]['items'].remove(item_name)
-            print("You picked up the", item_name, '.')
+            print("You pick up the " + item_name + '.')
             if "rose" in self.bag:
                 print("Yes finally, you reach the goal by getting the rose!")
         else:
@@ -44,20 +43,24 @@ class Adventure():
     def go(self, direction):
         if direction in self.map[self.curr]["exits"]:
             next = self.map[self.curr]["exits"][direction]
-            open = (self.map[next]["locked"] == 0)
-            if (self.map[next]["locked"] == 1):
-                for item in self.bag:
-                    if item == self.map[next]["key"]:
-                        print("Found the key in the bag!, unlocking your door now!")
-                        open = True
-            if not open:
-                print("Door is locked! You will be stay in the same room.")
-                return
+
+            if 'locked' in self.map[next]:
+                open = (self.map[next]["locked"] == 0)
+                if (self.map[next]["locked"] == 1):
+                    for item in self.bag:
+                        if item == self.map[next]["key"]:
+                            print(
+                                "Found the key in the bag!, unlocking your door now!")
+                            open = True
+                if not open:
+                    print("Door is locked! You will be stay in the same room.")
+                    return
+
             self.curr = next
-            print("You go", direction, '.')
+            print("You go", direction + '.')
             print()
         else:
-            print("There's no way to go", direction, '.')
+            print("There's no way to go", direction + '.')
 
     def help(sellf):
         # Get all the functions other than init
