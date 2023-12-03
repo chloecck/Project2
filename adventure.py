@@ -103,7 +103,8 @@ def main():
             print("\nUse 'quit' to exit.")
             continue
         except KeyboardInterrupt:
-            print("  ...\nKeyboardInterrupt")
+            print("\n  ...\nKeyboardInterrupt")
+            sys.exit(0)
     # Additional cleanup or exit logic can be added here
         # Continue with the game logic
         if not command:
