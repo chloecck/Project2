@@ -4,43 +4,25 @@
         "desc": "You are in a simple room with white walls.",
         "exits": {
             "north": 1,
-            "northwest": 3
-        },
-        "items": [
-            "blue key"
-        ],
-        "key": "red key",
-        "locked": 0
+            "east": 3
+        }
     },
     {
         "name": "A blue room",
         "desc": "This room is simple, too, but with blue walls.",
         "exits": {
-            "west": 2,
+            "east": 2,
             "south": 0
-        },
-        "items": [
-            "green key"
-        ],
-        "key": "blue key",
-        "locked": 1
+        }
     },
     {
         "name": "A green room",
         "desc": "You are in a simple room, with bright green walls.",
         "exits": {
-            "east": 1,
-            "southeast": 0
+            "west": 1,
+            "south": 3
         },
-        "items": [
-            "banana",
-            "bandana",
-            "bellows",
-            "deck of cards",
-            "red key"
-        ],
-        "key": "green key",
-        "locked": 1
+        "items": []
     },
     {
         "name": "A red room",
@@ -51,8 +33,6 @@
         },
         "items": [
             "rose"
-        ],
-        "key": "red key",
-        "locked": 1
+        ]
     }
 ]

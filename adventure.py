@@ -6,7 +6,7 @@ import inspect
 class Adventure():
     def __init__(self, map_file):
         self.map = map_file
-        self.bag = set()
+        self.bag = []
         self.curr = 0
 
     def look(self):
@@ -30,7 +30,7 @@ class Adventure():
 
     def get(self, item_name):
         if 'items' in self.map[self.curr] and item_name in self.map[self.curr]['items']:
-            self.bag.add(item_name)
+            self.bag.append(item_name)
             self.map[self.curr]['items'].remove(item_name)
             print("You pick up the " + item_name + '.')
             if "rose" in self.bag and 'locked' in self.map[self.curr]:
@@ -49,7 +49,7 @@ class Adventure():
                 for item in self.bag:
                     if item == self.map[next]["key"]:
                         print(
-                            "Found the key in the bag! Unlocking your room now!")
+                            "Found the key in the bag! Unlocking your room now! The item is still in your bag.")
                         open = True
             if not open:
                 print("Room is locked! You will be stay in the same room.")
@@ -59,6 +59,8 @@ class Adventure():
         print("You go", direction + '.\n')
         return True
 
+    def quit(self):
+        pass
 
 # extension
 
