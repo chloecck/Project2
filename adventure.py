@@ -28,7 +28,7 @@ class Adventure():
         if not self.bag:
             print("You're not carrying anything.")
             return
-        print("Inventory: ")
+        print("Inventory:")
         for item in self.bag:
             print("  ", item)
 

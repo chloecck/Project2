@@ -22,8 +22,8 @@ Exits: north west
 What would you like to do? get rose
 You pick up the rose.
 What would you like to do? inventory
-Inventory: 
-   rose
+Inventory:
+  rose
 What would you like to do? go north
 You go north.
 
@@ -34,8 +34,8 @@ You are in a simple room, with bright green walls.
 Exits: west south
 
 What would you like to do? inventory
-Inventory: 
-   rose
+Inventory:
+  rose
 What would you like to do? get rose
 There's no rose anywhere.
 What would you like to do? get
