@@ -29,10 +29,9 @@ python3 adventure.py loop.map
 
 You are in a simple room with white walls.
 
-Items: blue key .
+Items: blue key
 
-Exits:  north northwest
-
+Exits: north northwest
 
 What would you like to do? help
 You can run the following command:
@@ -43,89 +42,86 @@ You can run the following command:
   inventory
   load_map ...
   look
-
-
 What would you like to do? 
+
 
     2. drop function
 
-What would you like to do? get blue key
-You picked up the blue key .
+> A white room
 
+You are in a simple room with white walls.
+
+Items: blue key
+
+Exits: north northwest
+
+What would you like to do? get blue key
+You pick up the blue key.
 What would you like to do? drop blue key
-You dropped the blue key
+You dropped the blue key.
+What would you like to do? 
 
     3. a locked doors featured that can be open with specific keys.
 > A white room
 
 You are in a simple room with white walls.
 
-Items: blue key .
+Items: blue key
 
-Exits:  north northwest
-
+Exits: north northwest
 
 What would you like to do? get blue key
-You picked up the blue key .
-
+You pick up the blue key.
 What would you like to do? go north
 Found the key in the bag!, unlocking your door now!
-You go north .
+You go north.
 
 > A blue room
 
 This room is simple, too, but with blue walls.
 
-Items: green key .
+Items: green key
 
-Exits:  west south
-
+Exits: west south
 
 What would you like to do? get green key
-You picked up the green key .
-
+You pick up the green key.
 What would you like to do? go west
 Found the key in the bag!, unlocking your door now!
-You go west .
+You go west.
 
 > A green room
 
 You are in a simple room, with bright green walls.
 
-Items: banana, bandana, bellows, deck of cards, red key .
+Items: banana, bandana, bellows, deck of cards, red key
 
-Exits:  east southeast
-
+Exits: east southeast
 
 What would you like to do? get red key
-You picked up the red key .
-
+You pick up the red key.
 What would you like to do? go southeast
-You go southeast .
+You go southeast.
 
 > A white room
 
 You are in a simple room with white walls.
 
-
-Exits:  north northwest
-
+Exits: north northwest
 
 What would you like to do? go northwest
 Found the key in the bag!, unlocking your door now!
-You go northwest .
+You go northwest.
 
 > A red room
 
 This room is fancy. It's red!
 
-Items: rose .
+Items: rose
 
-Exits:  north west
-
+Exits: north west
 
 What would you like to do? get rose
-You picked up the rose .
+You pick up the rose.
 Yes finally, you reach the goal by getting the rose!
-
-What would you like to do? 
+What would you like to do? r
