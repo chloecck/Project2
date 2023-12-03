@@ -13,13 +13,13 @@ class Adventure():
         print("> " + self.map[self.curr]["name"] + "\n")
         print(self.map[self.curr]["desc"] + '\n')
 
-        if "items" in self.map[self.curr]:
-            # and len(self.map[self.curr]["items"]) != 0:
+        if "items" in self.map[self.curr] and len(self.map[self.curr]["items"]) != 0:
             print("Items: " + ', '.join(self.map[self.curr]["items"]) + '\n')
 
         # assume all rooms have exits
-        print("Exits: " +
-              ' '.join(list(self.map[self.curr]["exits"].keys())) + '\n')
+        if len(self.map[self.curr]["exits"]) != 0:
+            print("Exits: " +
+                  ' '.join(list(self.map[self.curr]["exits"].keys())) + '\n')
 
     def inventory(self):
         if not self.bag:
