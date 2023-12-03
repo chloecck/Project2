@@ -5,13 +5,9 @@ import inspect
 
 class Adventure():
     def __init__(self, map_file):
-        self.map = self.load_map(map_file)
+        self.map = map_file
         self.bag = set()
         self.curr = 0
-
-    def load_map(self, map_file):
-        with open(map_file, 'r') as file:
-            return json.load(file)
 
     def look(self):
         print("> " + self.map[self.curr]["name"] + "\n")
@@ -94,7 +90,13 @@ def main():
         sys.exit(1)
 
     map_file = sys.argv[1]
-    game = Adventure(map_file)
+
+    try:
+        with open(map_file, 'r') as file:
+            map = json.load(file)
+    except ValueError as e:
+        print("Invalid file!")
+    game = Adventure(map)
     game.look()
     while True:
         try:
@@ -106,8 +108,6 @@ def main():
         except KeyboardInterrupt:
             print("Traceback (most recent call last):\n  ...\nKeyboardInterrupt")
             sys.exit(0)
-    # Additional cleanup or exit logic can be added here
-        # Continue with the game logic
         if not command:
             print("Please enter a command.")
             continue
@@ -143,5 +143,4 @@ def main():
 
 
 if __name__ == "__main__":
-    import sys
     main()

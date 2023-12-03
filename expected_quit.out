@@ -4,6 +4,7 @@ You are in a simple room with white walls.
 
 Exits: north east
 
-What would you like to do? ^CTraceback (most recent call last):
-  ...
-KeyboardInterrupt
+What would you like to do? ^D
+Use 'quit' to exit.
+What would you like to do? quit
+Goodbye!
